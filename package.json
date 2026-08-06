@@ -11,7 +11,9 @@
   "author": "Deepu Automation",
   "type": "commonjs",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "demo": "playwright test tests/demo/mytest.spec.ts --headed"
+  },
   "devDependencies": {
     "@playwright/test": "^1.62.0",
     "@types/node": "^26.1.1"

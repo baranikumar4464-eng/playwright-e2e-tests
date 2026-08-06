@@ -1,6 +1,9 @@
 # Instructions and Notes
+
 ## In this session...
+
 Let's create the following folder structure:
+
 ```sh
 PLAYWRIGHT-E2E-TESTS/| I
 -.github/ # CI Config folder
@@ -59,3 +62,17 @@ node_modules/	any node_modules dir, anywhere
 .env	any file/folder named .env, anywhere
 /debug	only debug at repo root (file or folder)
 *.log	any file ending in .log, anywhere
+
+//commit
+** Push Changes to Remote **
+1. Git commands
+`git branch -M main'
+`git remote add origin <remote-url>'
+`git remote -v
+git push -u origin main"'
+2. Issues
+`git config -- list
+git push -f origin main'-> force push
+
+3. Remember this -'ACP'- 'Add commit push'
+```
