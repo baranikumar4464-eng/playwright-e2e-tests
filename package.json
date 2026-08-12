@@ -12,6 +12,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "login": "playwright test tests/functional/login_complete.spec.ts --headed",
     "demo": "playwright test tests/demo/mytest.spec.ts --headed"
   },
   "devDependencies": {
