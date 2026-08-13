@@ -13,7 +13,8 @@
   "main": "index.js",
   "scripts": {
     "login": "playwright test tests/functional/login_complete.spec.ts --headed",
-    "demo": "playwright test tests/demo/mytest.spec.ts --headed"
+    "demo0": "playwright test tests/demo/mytest.spec.ts --headed",
+    "demo1": "playwright test tests/demo/pointsToRemember.spec.ts"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.0",
