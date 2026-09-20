@@ -12,8 +12,12 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "login": "playwright test tests/functional/login_complete.spec.ts --headed",
+    "login0": "playwright test tests/functional/login_complete.spec.ts --headed",
+    "login1": "playwright test tests/functional/make.appmt.spec.ts --headed",
+    "inventory": "playwright test tests/functional/inventory.spec.ts --headed",
+    "drpdwn": "playwright test tests/functional/dropdownclass.spec.ts --headed",
     "demo0": "playwright test tests/demo/mytest.spec.ts --headed",
+    "aqdemo": "playwright test tests/demo/aq.spec.ts --headed",
     "demo1": "playwright test tests/demo/pointsToRemember.spec.ts"
   },
   "devDependencies": {

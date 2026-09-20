@@ -10,20 +10,28 @@ test.describe("Login functionality check", () => {
     await expect(page.locator("//h1")).toHaveText("CURA Healthcare Service");
     //CLick on the make appointment
     await page.getByRole("link", { name: "Make Appointment" }).click();
-    await expect(
-      page.getByText("Please login to make appointment."),
-    ).toBeVisible();
+    await expect(page.getByText("Please login to make appointment.")).toBeVisible();
   });
 
   test("Should login successfully", async ({ page }) => {
     //Login
-    await page.getByLabel("Username").fill("John Doe");
+    // await page.getByLabel("Username").fill("John Doe");
+
+    await page.getByLabel("Username").fill("Baranikumar");
+    await page.getByLabel("Username").clear();
+    await page.getByLabel("Username").pressSequentially("John Doe", { delay: 300 });
     await page.getByLabel("Password").fill("ThisIsNotAPassword");
     await page.getByRole("button", { name: "Login" }).click();
 
     //Assert a text
     await expect(page.locator("//h4")).toHaveText("CURA Healthcare Service");
     // await page.close();
+    let txt = page.getByRole("heading", { name: "Make Appointment" });
+    if (await txt.isVisible()) {
+      console.log("Visible");
+    } else {
+      console.log("Not visible");
+    }
   });
 
   test("Should prevent login successfully", async ({ page }) => {
@@ -34,9 +42,7 @@ test.describe("Login functionality check", () => {
 
     //Assert after failing
 
-    await expect(page.locator("#login")).toContainText(
-      "Login failed! Please ensure the username and password are valid.",
-    );
+    await expect(page.locator("#login")).toContainText("Login failed! Please ensure the username and password are valid.");
     await page.close();
   });
 });
