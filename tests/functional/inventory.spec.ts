@@ -2,10 +2,16 @@ import { test, expect } from "@playwright/test";
 
 /*
  * Scenario:
- * 1. Login as standard user
- * 2. Get a list of products with its price
- * 3. Assert that all products have non-zero dollar value
- * */
+ * 1. ✅Login as standard user
+ * 2. ✅Get a list of products with its price
+ * 3. ✅Assert that all products have non-zero dollar value
+ * 
+
+* @locators
+* 1. ✅.inventory_item -> all products
+* 2. ✅.inventory_item_name -> products
+* 3. ✅.inventory_item_price -> prices
+*/
 
 test.describe("Inventory features", () => {
   test.beforeEach("Login wth valid credentials", async ({ page }) => {
@@ -53,5 +59,14 @@ test.describe("Inventory features", () => {
      */
     let priceArrNum = priceEle.map((item) => parseFloat(item.replace("$", "")));
     console.log(priceArrNum);
+
+    let invalidPriceArr = priceArrNum.filter((item) => item <= 0);
+    expect(invalidPriceArr).toHaveLength(0);
+
+    if (invalidPriceArr.length > 0) {
+      console.log(`>>Zero price items found`);
+    } else {
+      console.log(`>>All items are having non-zero values`);
+    }
   });
 });

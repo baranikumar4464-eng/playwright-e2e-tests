@@ -14,6 +14,9 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./tests",
 
+  //global:
+  globalTimeout: 3 * 60 * 60 * 1000,
+
   /* Run tests in files in parallel */
   fullyParallel: true,
 
@@ -27,7 +30,27 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   /* Reporter to use */
-  reporter: "html",
+  reporter: [
+    [
+      "html",
+      {
+        open: "never",
+      },
+    ],
+    [
+      "allure-playwright",
+      {
+        detail: true,
+        suiteTitle: true,
+        environmentInfo: {
+          name: "QA",
+          appName: "SAUCEDEMO",
+          Release: "Release 1.1",
+          node_version: process.version,
+        },
+      },
+    ],
+  ],
 
   /* Shared settings for all the projects below */
   use: {
@@ -42,6 +65,12 @@ export default defineConfig({
 
     /* Open browser in maximized window */
     viewport: null,
+    //Capturing video for failure scenarios
+    video: "retain-on-failure",
+    //Always take screenshot if any failure
+    screenshot: "only-on-failure",
+    //timeout:
+    actionTimeout: 10_000,
 
     launchOptions: {
       args: ["--start-maximized"],

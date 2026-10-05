@@ -12,16 +12,19 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "login0": "playwright test tests/functional/login_complete.spec.ts --headed",
+    "screenshotdemo": "playwright test tests/functional/make.appmt.screenshot.spec.ts --headed",
+    "login0": "set DEBUG=pw:api&& playwright test tests/functional/login_complete.spec.ts --headed",
     "login1": "playwright test tests/functional/make.appmt.spec.ts --headed",
     "inventory": "playwright test tests/functional/inventory.spec.ts --headed",
     "drpdwn": "playwright test tests/functional/dropdownclass.spec.ts --headed",
     "demo0": "playwright test tests/demo/mytest.spec.ts --headed",
-    "aqdemo": "playwright test tests/demo/aq.spec.ts --headed",
-    "demo1": "playwright test tests/demo/pointsToRemember.spec.ts"
+    "anndemo": "playwright test tests/demo/Annotation_make.appmt.spec.ts --headed",
+    "tagdemo": "playwright test --grep @smoke --headed",
+    "aqdemo": "playwright test tests/demo/aq.spec.ts --headed"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.0",
-    "@types/node": "^26.1.1"
+    "@types/node": "^26.1.1",
+    "allure-playwright": "^3.12.2"
   }
 }
