@@ -13,7 +13,8 @@
   "main": "index.js",
   "scripts": {
     "screenshotdemo": "playwright test tests/functional/make.appmt.screenshot.spec.ts --headed",
-    "login0": "set DEBUG=pw:api&& playwright test tests/functional/login_complete.spec.ts --headed",
+    "adv:debug": "set DEBUG=pw:api&& playwright test tests/functional/login_complete.spec.ts --headed",
+    "hooks-demo": "playwright test tests/demo/hooks-demo.spec.ts --headed",
     "login1": "playwright test tests/functional/make.appmt.spec.ts --headed",
     "inventory": "playwright test tests/functional/inventory.spec.ts --headed",
     "drpdwn": "playwright test tests/functional/dropdownclass.spec.ts --headed",
@@ -24,7 +25,9 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.62.0",
-    "@types/node": "^26.1.1",
-    "allure-playwright": "^3.12.2"
+    "@types/node": "^26.6.4",
+    "allure-playwright": "^3.12.2",
+    "dotenv": "^18.0.6",
+    "typescript": "^7.0.2"
   }
 }
