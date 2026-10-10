@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import { type FullConfig } from "@playwright/test";
 import path from "path";
 import fs from "fs";
-dotenv.config({ path: path.resolve(__dirname, ".env") });
+dotenv.config({ path: path.resolve(process.cwd(), ".env") });
 
 export default async function globalSetup(config: FullConfig) {
   /* Executed before all the workers start. Good place to keep one-off tasks before all workers start */
