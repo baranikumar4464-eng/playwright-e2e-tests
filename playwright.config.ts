@@ -13,6 +13,7 @@ dotenv.config({ path: path.resolve(__dirname, ".env") });
  */
 export default defineConfig({
   testDir: "./tests",
+  globalSetup: "./tests/helpers/global-setup.ts",
 
   //global:
   // globalTimeout: 3 * 60 * 60 * 1000,
