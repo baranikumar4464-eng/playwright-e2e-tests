@@ -70,7 +70,7 @@ export default defineConfig({
     //Capturing video for failure scenarios
     video: "retain-on-failure",
     //Always take screenshot if any failure
-    screenshot: "only-on-failure",
+    screenshot: "on",
     //timeout:
     // actionTimeout: 10_000,
 
@@ -92,15 +92,27 @@ export default defineConfig({
       },
     },
 
+    {
+      name: "iPhone 13 chrome",
+      // Use Chromium with the iPhone 13 device settings so this project can
+      // run without requiring the separate WebKit browser installation.
+      use: {
+        ...devices["iPhone 13"],
+        browserName: "chromium",
+        channel: "chrome",
+        video: "off",
+      },
+    },
+
     // {
     //   name: "firefox",
     //   use: { ...devices["Desktop Firefox"] },
     // },
 
-    // {
-    //   name: "webkit",
-    //   use: { ...devices["Desktop Safari"] },
-    // },
+    {
+      name: "webkit-safari",
+      use: { ...devices["Desktop Safari"], ignoreHTTPSErrors: true },
+    },
 
     // {
     //   name: "Mobile Chrome",

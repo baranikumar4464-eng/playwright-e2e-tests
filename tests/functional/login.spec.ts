@@ -1,6 +1,6 @@
 //https://katalon-demo-cura.herokuapp.com/
 
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../helpers/screenshot-test";
 
 test("Should login successfully", async ({ page }) => {
   //launch the url and assert the title and header

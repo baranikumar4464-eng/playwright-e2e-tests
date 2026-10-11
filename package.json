@@ -15,12 +15,16 @@
     "screenshotdemo": "playwright test tests/functional/make.appmt.screenshot.spec.ts --headed",
     "adv:debug": "set DEBUG=pw:api&& playwright test tests/functional/login_complete.spec.ts --headed",
     "hooks-demo": "playwright test tests/demo/hooks-demo.spec.ts --headed",
+    "demo:devices": "playwright test tests/demo/demo-devices.spec.ts",
     "login1": "playwright test tests/functional/make.appmt.spec.ts --headed",
     "inventory": "playwright test tests/functional/inventory.spec.ts --headed",
     "drpdwn": "playwright test tests/functional/dropdownclass.spec.ts --headed",
     "demo0": "playwright test tests/demo/mytest.spec.ts --headed",
     "anndemo": "playwright test tests/demo/Annotation_make.appmt.spec.ts --headed",
     "tagdemo": "playwright test --grep @smoke --headed",
+    "login0": "playwright test tests/functional/login.spec.ts --project=\"iPhone 13\" --headed",
+    "login:screenshots-iphone": "playwright test tests/functional/login-taking screenshots.spec.ts --project=\"iPhone 13 chrome\"",
+    "login:screenshots": "playwright test tests/functional/login-taking screenshots.spec.ts",
     "aqdemo": "playwright test tests/demo/aq.spec.ts --headed"
   },
   "devDependencies": {
