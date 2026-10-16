@@ -1,0 +1,52 @@
+import { test, expect } from "@playwright/test";
+import testData from "../../data/Test-Data";
+
+const mktdata = testData.makeAptTestData();
+
+for (const data of mktdata) {
+  // console.log(`>>Test data: ${JSON.stringify(data)}`);
+  test.describe("Make appointment scenarios", () => {
+    //prerequisites- Login with valid credentials
+    test.beforeEach("Login with valid credential to make appointment", async ({ page }) => {
+      await page.goto("https://katalon-demo-cura.herokuapp.com/");
+      await expect(page).toHaveTitle("CURA Healthcare Service");
+      await expect(page.locator("//h1")).toHaveText("CURA Healthcare Service");
+      //CLick on the make appointment
+      await page.getByRole("link", { name: "Make Appointment" }).click();
+      await expect(page.getByText("Please login to make appointment.")).toBeVisible();
+
+      //Login
+      await page.getByLabel("Username").fill("John Doe");
+      await page.getByLabel("Password").fill("ThisIsNotAPassword");
+      await page.getByRole("button", { name: "Login" }).click();
+
+      //Get login cookies
+      const loginCookies = await page.context().cookies();
+      process.env.LOGIN_COOKIES = JSON.stringify(loginCookies);
+      console.log(process.env.LOGIN_COOKIES);
+    });
+
+    test(`${data.testId} should make an appoint with test data`, async ({ page }) => {
+      await expect(page.locator("h2")).toContainText("Make Appointment");
+      //dropdown
+      await page.getByLabel("Facility").selectOption(data.facility);
+      //checkbox
+      await page.getByRole("checkbox", { name: "Apply for hospital readmission" }).check();
+      //radio button
+      await page.getByRole("radio", { name: data.hcp }).check();
+      //date input/ picker
+      await page.getByRole("textbox", { name: "Visit Date (Required)" }).click();
+      await page.getByRole("textbox", { name: "Visit Date (Required)" }).pressSequentially(data.visitDate);
+      await page.getByRole("textbox", { name: "Visit Date (Required)" }).press("Enter");
+      //multilne input box
+      await page.getByRole("textbox", { name: "Comment" }).click();
+      await page.getByRole("textbox", { name: "Comment" }).fill("Playwright with codegen\nMaking appointment with non default values");
+      //button
+      await page.getByRole("button", { name: "Book Appointment" }).click();
+      //Assertion
+      await expect(page.getByRole("heading", { name: "Appointment Confirmation" })).toBeVisible();
+      await expect(page.locator("#facility")).toContainText(data.facility);
+      await expect(page.locator("#comment")).toContainText("Playwright with codegen Making appointment with non default values");
+    });
+  });
+}

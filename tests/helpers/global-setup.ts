@@ -21,5 +21,6 @@ export default async function globalSetup(config: FullConfig) {
   // - Environment configuration
   // - External service setup
   // - Start test servers
+  process.env.LOGIN_COOKIES = undefined;
   console.log("Global setup completed");
 }

@@ -16,11 +16,17 @@
     "adv:debug": "set DEBUG=pw:api&& playwright test tests/functional/login_complete.spec.ts --headed",
     "hooks-demo": "playwright test tests/demo/hooks-demo.spec.ts --headed",
     "demo:devices": "playwright test tests/demo/demo-devices.spec.ts",
+    "demo:desktopandmobile": "playwright test tests/demo/login-make-apt.spec.ts --project=\"ms edge\" --project=\"pixel 10 Pro\" --headed",
+    "demo:make.apt-parameter": "playwright test tests/demo/make.appmt-parameter.spec.ts --headed",
+    "demo:make.apt-testConfig-params": "playwright test --config=config/test.playwright.config.ts tests/demo/make.appmt.envconfig-parameter.spec.ts --headed",
+    "demo:make.apt-devConfig-params": "playwright test --config=config/dev.playwright.config.ts tests/demo/make.appmt.envconfig-parameter.spec.ts --headed",
+    "demo:make.apt-cookies": "playwright test tests/demo/make.appmt-params_cookies.spec.ts --headed",
     "login1": "playwright test tests/functional/make.appmt.spec.ts --headed",
     "inventory": "playwright test tests/functional/inventory.spec.ts --headed",
     "drpdwn": "playwright test tests/functional/dropdownclass.spec.ts --headed",
     "demo0": "playwright test tests/demo/mytest.spec.ts --headed",
     "anndemo": "playwright test tests/demo/Annotation_make.appmt.spec.ts --headed",
+    "datademo": "playwright test tests/demo/data-example.spec.ts --headed",
     "tagdemo": "playwright test --grep @smoke --headed",
     "login0": "playwright test tests/functional/login.spec.ts --project=\"iPhone 13\" --headed",
     "login:screenshots-iphone": "playwright test tests/functional/login-taking screenshots.spec.ts --project=\"iPhone 13 chrome\"",
@@ -33,6 +39,7 @@
     "allure-commandline": "^2.46.1",
     "allure-playwright": "^3.12.2",
     "dotenv": "^18.0.7",
+    "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   }
 }

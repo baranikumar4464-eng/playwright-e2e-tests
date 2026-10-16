@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("Make appointment scenarios", { annotation: { type: "Story", description: "JIRA-123: Make appointment positive scenarios" }, tag: "@regression" }, () => {
   //prerequisites- Login with valid credentials
-  test("Login with valid credential to make appointment", { tag: "smoke" }, async ({ page }) => {
+  test("Login with valid credential to make appointment", { tag: "@smoke" }, async ({ page }) => {
     await page.goto("https://katalon-demo-cura.herokuapp.com/", { timeout: 20_000 });
     await expect(page).toHaveTitle("CURA Healthcare Service");
     await expect(page.locator("//h1")).toHaveText("CURA Healthcare Service");

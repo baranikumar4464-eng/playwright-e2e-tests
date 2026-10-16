@@ -1,0 +1,6 @@
+{
+  "STATUSCODES": {
+    "Status": 200,
+    "ValidationError": 707
+  }
+}

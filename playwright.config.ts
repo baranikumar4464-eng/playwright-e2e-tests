@@ -10,8 +10,9 @@ dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
+ * export default defineConfig
  */
-export default defineConfig({
+export const baseConfig = defineConfig({
   testDir: "./tests",
   globalSetup: "./tests/helpers/global-setup.ts",
   globalTeardown: "./tests/helpers/global-teardown.ts",
@@ -91,7 +92,7 @@ export default defineConfig({
         },
       },
     },
-
+    /*
     {
       name: "iPhone 13 chrome",
       // Use Chromium with the iPhone 13 device settings so this project can
@@ -113,6 +114,10 @@ export default defineConfig({
       name: "webkit-safari",
       use: { ...devices["Desktop Safari"], ignoreHTTPSErrors: true },
     },
+    {
+      name: "pixel 10 Pro",
+      use: { ...devices["Pixel 10 Pro"], video: "on" },
+    },
 
     // {
     //   name: "Mobile Chrome",
@@ -124,14 +129,14 @@ export default defineConfig({
     //   use: { ...devices["iPhone 12"] },
     // },
 
-    // {
-    //   name: "Microsoft Edge",
-    //   use: {
-    //     ...devices["Desktop Edge"],
-    //     channel: "msedge",
-    //   },
-    // },
-
+    {
+      name: "ms edge",
+      use: {
+        ...devices["Desktop Edge"],
+        channel: "msedge",
+      },
+    },
+*/
     // {
     //   name: "Google Chrome",
     //   use: {
