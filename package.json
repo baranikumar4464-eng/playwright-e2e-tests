@@ -21,6 +21,7 @@
     "demo:make.apt-testConfig-params": "playwright test --config=config/test.playwright.config.ts tests/demo/make.appmt.envconfig-parameter.spec.ts --headed",
     "demo:make.apt-devConfig-params": "playwright test --config=config/dev.playwright.config.ts tests/demo/make.appmt.envconfig-parameter.spec.ts --headed",
     "demo:make.apt-cookies": "playwright test tests/demo/make.appmt-params_cookies.spec.ts --headed",
+    "demo:make.apt-passwordhandle": "playwright test --config=config/test.playwright.config.ts tests/demo/passwordHandle-make-apt.spec.ts --headed",
     "login1": "playwright test tests/functional/make.appmt.spec.ts --headed",
     "inventory": "playwright test tests/functional/inventory.spec.ts --headed",
     "drpdwn": "playwright test tests/functional/dropdownclass.spec.ts --headed",
