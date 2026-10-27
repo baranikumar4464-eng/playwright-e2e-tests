@@ -88,7 +88,7 @@ export const baseConfig = defineConfig({
         browserName: "chromium",
         viewport: null,
         launchOptions: {
-          args: ["--start-maximized"],
+          args: ["--start-maximized", "--disable-blink-features=AutomationControlled", "--disable-features=IsolateOrigins,site-per-process", "--allow-no-sandbox-job"],
         },
       },
     },

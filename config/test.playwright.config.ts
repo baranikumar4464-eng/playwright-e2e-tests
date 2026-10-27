@@ -13,6 +13,7 @@ export default defineConfig<EnvConfig>({
     ...baseConfig.use,
     envName: "test",
     appUrl: "https://katalon-demo-cura.herokuapp.com/",
+    nopCommerceWeb: "https://admin-demo.nopcommerce.com/",
     dbConfig: {
       server: "",
       dbname: "",
