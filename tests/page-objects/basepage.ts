@@ -38,4 +38,34 @@ export default class BasePage {
       throw error;
     }
   }
+
+  /** Select an option from a native HTML dropdown by visible text. */
+  async selectDropdown(ele: Locator, label: string) {
+    try {
+      await ele.selectOption({ label });
+    } catch (error) {
+      await log("error", `Failed to select dropdown option "${label}": ${error}`);
+      throw error;
+    }
+  }
+
+  /** Select a radio button. */
+  async selectRadioButton(ele: Locator) {
+    try {
+      await ele.check();
+    } catch (error) {
+      await log("error", `Failed to select radio button: ${error}`);
+      throw error;
+    }
+  }
+
+  /** Check or uncheck a checkbox. */
+  async setCheckbox(ele: Locator, checked: boolean) {
+    try {
+      await ele.setChecked(checked);
+    } catch (error) {
+      await log("error", `Failed to set checkbox to ${checked}: ${error}`);
+      throw error;
+    }
+  }
 }

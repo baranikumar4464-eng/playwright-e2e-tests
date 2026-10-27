@@ -13,6 +13,7 @@
   "main": "index.js",
   "scripts": {
     "nope.commerce.e2e": "playwright test --config=config/test.playwright.config.ts tests/e2e/nopCommerce.e2e.spec.ts --headed",
+    "make.apt.complete.e2e": "playwright test --config=config/test.playwright.config.ts tests/e2e/make.apt.complete.e2e.spec.ts --headed",
     "make.apt.e2e": "playwright test --config=config/test.playwright.config.ts tests/e2e/make.apt.e2e.spec.ts --headed",
     "screenshotdemo": "playwright test tests/functional/make.appmt.screenshot.spec.ts --headed",
     "adv:debug": "set DEBUG=pw:api&& playwright test tests/functional/login_complete.spec.ts --headed",
