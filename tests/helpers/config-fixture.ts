@@ -1,10 +1,11 @@
 import {test as base} from '@playwright/test'
 
-export type EnvConfig{
-    envName: String;
-    appUrl: String;
+export type EnvConfig = {
+    envName: string;
+    appUrl: string;
     dbConfig: {};
-    nopCommerceWeb: String;
+    nopCommerceWeb: string;
+    "auto-quote-qa": string;
 };
 
 export const test = base.extend<EnvConfig>({

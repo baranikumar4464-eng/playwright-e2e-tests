@@ -33,6 +33,7 @@
     "demo0": "playwright test tests/demo/mytest.spec.ts --headed",
     "anndemo": "playwright test tests/demo/Annotation_make.appmt.spec.ts --headed",
     "datademo": "playwright test tests/demo/data-example.spec.ts --headed",
+    "auto-quote-and-bind.e2e": "playwright test --config=config/test.playwright.config.ts tests/e2e/auto-quote-and-bind.e2e.spec.ts --headed",
     "tagdemo": "playwright test --grep @smoke --headed",
     "login0": "playwright test tests/functional/login.spec.ts --project=\"iPhone 13\" --headed",
     "login:screenshots-iphone": "playwright test tests/functional/login-taking screenshots.spec.ts --project=\"iPhone 13 chrome\"",
@@ -47,6 +48,7 @@
     "chalk": "^6.0.1",
     "csv-parse": "^7.0.3",
     "dotenv": "^18.0.7",
+    "exceljs": "^4.4.0",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   }

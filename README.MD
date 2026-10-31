@@ -76,3 +76,16 @@ git push -f origin main'-> force push
 
 3. Remember this -'ACP'- 'Add commit push'
 ```
+
+## Auto Quote E2E
+
+The Auto Quote flow is in `tests/e2e/auto-quote-and-bind.e2e.spec.ts`. Its Excel workbook is read from `data/auto-quote-test-data.xlsx` by default; set `AUTO_QUOTE_DATA_FILE` to use another path and `AUTO_QUOTE_WORKSHEET` to select a worksheet (the first worksheet is used by default).
+
+Add these column headers to the first row:
+
+| First Name | Last Name | DOB | VIN | Address |
+| --- | --- | --- | --- | --- |
+
+`DOB` can be an Excel date or `MM/DD/YYYY`. Each data row must provide all five values. Optional columns are `Test ID`, `Email`, and `Phone`; missing contact values use `AUTO_QUOTE_EMAIL` / `AUTO_QUOTE_PHONE`, then test-safe defaults. Keep workbooks containing real personal data out of source control.
+
+Run the flow with `npm run auto-quote-and-bind.e2e`. The current journey ends at the pre-quote summary; bind steps can be added as further page objects and steps when those screens are available.
